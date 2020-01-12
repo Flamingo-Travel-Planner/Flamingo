@@ -27,7 +27,6 @@ import sample.Models.Destination;
 public class AttractionRecommender {
 
     public static final int DEFAULT_RADIUS = 7_500;
-    public static final int MAX_IMAGE_DIMENSION = 600;
     public static final String EMPTY_IMAGE_URL = "https://www.logistec.com/wp-content/uploads/2017/12/placeholder.png";
 
     private static final HashMap<Attraction.Category, String> categorySubcategoryMappings = new HashMap<>();  // TODO Temporary hard-coding
@@ -40,9 +39,9 @@ public class AttractionRecommender {
         sf.setDepartureDate(LocalDate.now());
         sf.setReturnDate(LocalDate.now().plus(Period.ofDays(3)));
         sf.setOrigin("asdfasdf");  // TODO actually use this
-        sf.addSelectedCategory(Attraction.Category.NIGHTLIFE);
+        sf.addSelectedCategory(Attraction.Category.ENTERTAINMENT);
 
-        Destination dest = new Destination("toronto");
+        Destination dest = new Destination("Kyiv");
 
         System.out.println(recommendAttractions(sf, dest));
     }
@@ -130,20 +129,15 @@ public class AttractionRecommender {
 
             JSONArray images = (JSONArray) jsonAttraction.get("photos");
 
-            String imageUrl;
-            if (images == null || images.size() == 0) {
-                imageUrl = EMPTY_IMAGE_URL;
-            }
-            else {
-                String imageId = (String) (((JSONObject) images.get(0)).get("photo_reference"));
-                imageUrl = getImageUrl(imageId, apiKey);
-            }
+            String imageId;
+            if (images == null || images.size() == 0) imageId = null;
+            else imageId = (String) (((JSONObject) images.get(0)).get("photo_reference"));
 
             // TODO add rating data (1-5) which is available w/ jsonAttraction.get("rating")
             Attraction attraction = new Attraction(
                     (String) jsonAttraction.get("vicinity"),
                     (String) jsonAttraction.get("name"),
-                    imageUrl,
+                    imageId,
                     (double) ((JSONObject) (((JSONObject) (jsonAttraction.get("geometry"))).get("location"))).get("lat"),
                     (double) ((JSONObject) (((JSONObject) (jsonAttraction.get("geometry"))).get("location"))).get("lng"),
                     subcategoryPriceMapping.get(subCategory),  // TODO temporary hard coding
@@ -155,10 +149,6 @@ public class AttractionRecommender {
         }
 
         return listOfAttractions;
-    }
-    private static String getImageUrl(String imageId, String apiKey) {
-        return String.format("https://maps.googleapis.com/maps/api/place/photo?maxwidth=%d&photoreference=%s&key=%s",
-                MAX_IMAGE_DIMENSION, imageId, apiKey);
     }
 
     private static JSONObject jsonReader(String url) throws IOException, ParseException {
