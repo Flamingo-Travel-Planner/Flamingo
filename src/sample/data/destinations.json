@@ -1,0 +1,100 @@
+[
+    {
+        "country": "Canada",
+        "city": "Toronto",
+        "latitude": 43.6547567,
+        "longitude": -79.6582408,
+        "price": 295.0,
+        "description": "Nice city"
+    },
+
+    {
+        "country": "Cuba",
+        "city": "Havana",
+        "latitude": 23.0504398,
+        "longitude": -82.6131946,
+        "price": 481.0,
+        "description": "Nice city"
+    },
+
+    {
+        "country": "Colombia",
+        "city": "Bogota",
+        "latitude": 4.6482837,
+        "longitude": -74.2478938,
+        "price": 604.0,
+        "description": "Nice city"
+    },
+
+    {
+        "country": "England",
+        "city": "London",
+        "latitude": 51.5285582,
+        "longitude": -0.2416807,
+        "price": 764.0,
+        "description": "Nice city"
+    },
+
+    {
+        "country": "Japan",
+        "city": "Tokyo",
+        "latitude": 35.6681625,
+        "longitude": 139.6007836,
+        "price": 1161.0,
+        "description": "Nice city"
+    },
+
+    {
+        "country": "Turkey",
+        "city": "Istanbul",
+        "latitude": 41.0039643,
+        "longitude": 28.4517462,
+        "price": 1412.0,
+        "description": "Nice city"
+    },
+
+    {
+        "country": "United States",
+        "city": "New York City",
+        "latitude": 40.6971494,
+        "longitude": -74.2598635,
+        "price": 348.0,
+        "description": "Nice city"
+    },
+
+    {
+        "country": "Canada",
+        "city": "Montreal",
+        "latitude": 45.5579564,
+        "longitude": -73.8703854,
+        "price": 464.0,
+        "description": "Nice city"
+    },
+
+    {
+        "country": "Brazil",
+        "city": "Rio de Janeiro",
+        "latitude": -22.9138851,
+        "longitude": -43.7261722,
+        "price": 692.0,
+        "description": "Nice city"
+    },
+
+    {
+        "country": "United States",
+        "city": "Las Vegas",
+        "latitude": 36.1249185,
+        "longitude": -115.315084,
+        "price": 608.0,
+        "description": "Nice city"
+    },
+
+    {
+        "country": "Ukraine",
+        "city": "Kyiv",
+        "latitude": 50.4016991,
+        "longitude": 30.2525136,
+        "price": 1195.0,
+        "description": "Nice city"
+    }
+]
