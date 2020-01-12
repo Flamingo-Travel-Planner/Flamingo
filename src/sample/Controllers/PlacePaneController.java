@@ -26,7 +26,7 @@ public class PlacePaneController {
         nameLabel.setText(place.getName());
         priceLabel.setText(Double.toString(place.getPrice()));
         try {
-            placeImageView.setImage(new Image(place.getImageUrl()));
+            placeImageView.setImage(new Image(place.getImageId()));
         }catch (Exception e){
             placeImageView.setImage(new Image(AttractionRecommender.EMPTY_IMAGE_URL));
         }

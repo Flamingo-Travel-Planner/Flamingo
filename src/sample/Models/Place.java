@@ -2,13 +2,13 @@ package sample.Models;
 
 public class Place {
 
-    private String address, name, imageUrl;
+    private String address, name, imageId;
     private double latitude, longitude, price;
 
-    public Place(String address, String name, String imageUrl, double latitude, double longitude, double price) {
+    public Place(String address, String name, String imageId, double latitude, double longitude, double price) {
         this.address = address;
         this.name = name;
-        this.imageUrl = imageUrl;
+        this.imageId = imageId;
         this.latitude = latitude;
         this.longitude = longitude;
         this.price = price;
@@ -16,7 +16,7 @@ public class Place {
 
     @Override
     public String toString() {
-        return "\n" + this.name + ", located at " + this.address + " (image: " + imageUrl + ")";
+        return "\n" + this.name + ", located at " + this.address + " (image: " + imageId + ")";
     }
 
     /****** Getters *****/
@@ -28,8 +28,8 @@ public class Place {
         return name;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImageId() {
+        return imageId;
     }
 
     public double getLatitude() {
