@@ -9,7 +9,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
 
 public class Destination {
-    private final String IMAGE_PATH = "../media/destinations/";
+    private static final String IMAGE_PATH = "../media/destinations/";
+    private static final String IMAGE_EXTENSION = ".jpg";
 
     private String city, country, description, imageURL;
 
@@ -17,7 +18,7 @@ public class Destination {
 
     public Destination(String city) {
         // Auto-populate fields based on city
-        Object obj = null;
+        Object obj;
         try {
             obj = new JSONParser().parse(new FileReader("./src/sample/data/destinations.json"));
         } catch (IOException | ParseException e) {
@@ -31,14 +32,14 @@ public class Destination {
         for (Object destinationObj : jsonDestinations) {
             JSONObject destination = (JSONObject) destinationObj;
 
-            if (destination.get("city").equals(city)) {
+            if (((String) destination.get("city")).toLowerCase().equals(city)) {
                 this.city = (String) destination.get("city");
                 this.country = (String) destination.get("country");
                 this.description = (String) destination.get("description");
                 this.latitude = (double) destination.get("latitude");
                 this.longitude = (double) destination.get("longitude");
                 this.price = (double) destination.get("price");
-                this.imageURL = IMAGE_PATH + city.toLowerCase() + ".jpg";
+                this.imageURL = IMAGE_PATH + city.toLowerCase() + IMAGE_EXTENSION;
                 break;
             }
         }

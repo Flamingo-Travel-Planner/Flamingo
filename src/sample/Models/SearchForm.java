@@ -1,6 +1,8 @@
 package sample.Models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SearchForm {
 
@@ -10,10 +12,11 @@ public class SearchForm {
 
     private LocalDate departureDate, returnDate;
 
-    private boolean museums, nightlife, religion, shopping, entertainment, outdoor;
+    private List<Attraction.Category> selectedCategories = new ArrayList<>();
 
     public int getBudget() {
-        return budget; }
+        return budget;
+    }
 
     public void setBudget(int budget) {
         this.budget = budget;
@@ -43,51 +46,15 @@ public class SearchForm {
         this.returnDate = returnDate;
     }
 
-    public boolean isMuseums() {
-        return museums;
+    public List<Attraction.Category> getSelectedCategories() {
+        return new ArrayList<>(selectedCategories);  // Return a shallow copy to make immutable
     }
 
-    public void setMuseums(boolean museums) {
-        this.museums = museums;
+    public void addSelectedCategory(Attraction.Category toAdd) {
+        selectedCategories.add(toAdd);
     }
 
-    public boolean isNightlife() {
-        return nightlife;
-    }
-
-    public void setNightlife(boolean nightlife) {
-        this.nightlife = nightlife;
-    }
-
-    public boolean isReligion() {
-        return religion;
-    }
-
-    public void setReligion(boolean religion) {
-        this.religion = religion;
-    }
-
-    public boolean isShopping() {
-        return shopping;
-    }
-
-    public void setShopping(boolean shopping) {
-        this.shopping = shopping;
-    }
-
-    public boolean isEntertainment() {
-        return entertainment;
-    }
-
-    public void setEntertainment(boolean entertainment) {
-        this.entertainment = entertainment;
-    }
-
-    public boolean isOutdoor() {
-        return outdoor;
-    }
-
-    public void setOutdoor(boolean outdoor) {
-        this.outdoor = outdoor;
+    public int getNumSelectedCategories() {
+        return selectedCategories.size();
     }
 }

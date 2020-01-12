@@ -7,12 +7,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import sample.Models.DestinationRecommender;
+import sample.Models.Attraction;
+import sample.utils.DestinationRecommender;
 import sample.Models.SearchForm;
 import sample.managers.AppManager;
 import sample.managers.DialogWindowManager;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class SearchSceneController implements Initializable {
@@ -54,22 +57,14 @@ public class SearchSceneController implements Initializable {
         searchForm.setDepartureDate(departureDatePicker.getValue());
         searchForm.setReturnDate(returnDatePicker.getValue());
 
-        searchForm.setMuseums(museumsCheckBox.isSelected());
-        searchForm.setNightlife(nightlifeCheckBox.isSelected());
-        searchForm.setReligion(religionCheckBox.isSelected());
-        searchForm.setEntertainment(entertainmentCheckBox.isSelected());
-        searchForm.setOutdoor(outdoorCheckBox.isSelected());
-        searchForm.setShopping(shoppingCheckBox.isSelected());
+        if (museumsCheckBox.isSelected()) searchForm.addSelectedCategory(Attraction.Category.MUSEUM);
+        if (nightlifeCheckBox.isSelected()) searchForm.addSelectedCategory(Attraction.Category.NIGHTLIFE);
+        if (religionCheckBox.isSelected()) searchForm.addSelectedCategory(Attraction.Category.RELIGION);
+        if (entertainmentCheckBox.isSelected()) searchForm.addSelectedCategory(Attraction.Category.ENTERTAINMENT);
+        if (outdoorCheckBox.isSelected()) searchForm.addSelectedCategory(Attraction.Category.OUTDOOR_PARK);
+        if (shoppingCheckBox.isSelected()) searchForm.addSelectedCategory(Attraction.Category.SHOPPING);
 
-        int categoriesSelected = 0;
-
-        for (Node categoryHBox: categoriesContainer.getChildrenUnmodifiable()) {
-            for(Node category: ((Parent)categoryHBox).getChildrenUnmodifiable()) {
-                if(((JFXCheckBox)category).isSelected()) categoriesSelected++;
-            }
-        }
-
-        if(categoriesSelected == 0) {
+        if(searchForm.getNumSelectedCategories() == 0) {
             DialogWindowManager.showAlert(AppManager.getInstance().getCurrentStage(), "Error!", "Please select at least one interest category");
             return;
         }

@@ -1,6 +1,8 @@
-package sample.Models;
+package sample.utils;
 
 import javafx.util.Pair;
+import sample.Models.Destination;
+import sample.Models.SearchForm;
 
 import java.time.Duration;
 import java.time.Period;
