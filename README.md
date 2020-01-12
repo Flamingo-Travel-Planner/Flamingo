@@ -1,4 +1,4 @@
-![logo](thumbnail.jpg)
+![logo](image/thumbnail.jpg)
 
 # Flamingo
 **cuHacking 2020 submission**
@@ -10,4 +10,4 @@ A budget-oriented travel planner.
 - Utlizing Google's Places API, this app will generate attractions, hotels, and restaurants that suit your preferences and respect location and budget for you to choose to add to your vacation.
 
 ## Screenshots
-![location screen](locationScreen.png)
+![location screen](image/locationScreen.png)
