@@ -8,4 +8,4 @@ A budget-oriented travel planner.
 - Utlizing Google's Places API, this app will generate attractions, hotels, and restaurants that suit your preferences and respect location and budget for you to choose to add to your vacation.
 
 ## Screenshots
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![location screen](locationScreen.png)
