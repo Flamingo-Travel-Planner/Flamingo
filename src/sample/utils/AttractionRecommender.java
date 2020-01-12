@@ -49,7 +49,7 @@ public class AttractionRecommender {
     public static HashMap<Attraction.Category, List<Attraction>> recommendAttractions(
             SearchForm searchForm, Destination destination) {
 
-        String apiKey = retrieveApiKey();
+        String apiKey = KeyTool.getApiKey();
 
         populateCategorySubcategoryMappings();
         populateSubcategoryDurationMappings();
@@ -148,32 +148,12 @@ public class AttractionRecommender {
                 MAX_IMAGE_DIMENSION, imageId, apiKey);
     }
 
-//    public static void main(String[] args) {
-//        String url = String.format("https://maps.googleapis.com/maps/api/place/nearbysearch/json?" +
-//                        "location=%f,%f&radius=%d&type=%s&key=%s",
-//                43.6547567,
-//                -79.6582408,
-//                DEFAULT_RADIUS,
-//                "movie_theater",
-//                retrieveApiKey());
-//        try {
-//            System.out.println(jsonReader(url));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     private static JSONObject jsonReader(String url) throws IOException, ParseException {
         InputStream is = new URL(url).openStream();
         try {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String jsonText = readAll(rd);
-//            return new JSONObject(jsonText);
             return (JSONObject) new JSONParser().parse(jsonText);
-//            JSONObject thing = new JSONParser().parse(jsonText);
-//            return thing;
         } finally {
             is.close();
         }
@@ -185,26 +165,6 @@ public class AttractionRecommender {
             sb.append((char) cp);
         }
         return sb.toString();
-    }
-
-
-    private static String retrieveApiKey() {
-        Object obj;
-        try {
-            obj = new JSONParser().parse(new FileReader("./src/sample/data/keys.json"));
-        } catch (IOException | ParseException e) {
-            throw new IllegalStateException("Couldn't read file ./src/sample/data/keys.json. " +
-                    "Please rename /data/keys-dist.json to /data/keys.json, and replace the ~ with your API key.");
-        }
-
-        JSONObject keysFile = (JSONObject) obj;
-        String apiKey = (String) keysFile.get("GOOGLE_API_KEY");
-
-        if (apiKey.trim().equals("~")) {
-            throw new IllegalStateException("Please replace the ~ with your own API key in ./src/sample/data/keys.json.");
-        }
-
-        return apiKey;
     }
 
 }
