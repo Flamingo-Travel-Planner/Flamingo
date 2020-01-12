@@ -25,7 +25,7 @@ public class DestinationRecommender {
      * @return
      */
     public static List<Destination> recommendDestinations(SearchForm searchForm) {
-        int numNights = (int) ChronoUnit.DAYS.between(searchForm.getReturnDate(), searchForm.getDepartureDate()) - 1;
+        int numNights = (int) ChronoUnit.DAYS.between(searchForm.getDepartureDate(), searchForm.getReturnDate());
         double targetPrice = calculateTargetPrice(searchForm.getBudget(), numNights);
 
         Destination[] destinations = new Destination[CITIES.length];
@@ -35,6 +35,7 @@ public class DestinationRecommender {
         }
 
         List<Pair<Destination, Double>> destinationsSortedByTargetPrice = Arrays.stream(destinations)
+                .filter(destination -> destination.getPrice() <= searchForm.getBudget())
                 .map(dest -> new Pair<Destination, Double>(dest, Math.abs(dest.getPrice() - targetPrice)))
                 .sorted((p1, p2) -> (int)(p1.getValue() - p2.getValue()))
                 .collect(Collectors.toList());
