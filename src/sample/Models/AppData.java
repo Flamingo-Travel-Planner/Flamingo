@@ -1,0 +1,36 @@
+package sample.Models;
+
+import java.util.List;
+
+public class AppData {
+
+    private int budget;
+
+    private List<Destination> recommendationsList;
+
+    public void setRecommendationsList(List<Destination> recommendationsList) {
+        this.recommendationsList = recommendationsList;
+    }
+
+    public int getBudget() {
+        return budget;
+    }
+
+    public void setBudget(int budget) {
+        this.budget = budget;
+    }
+
+    private Destination selectedTrip;
+
+    public List<Destination> getRecommendationsList() {
+        return recommendationsList;
+    }
+
+    public Destination getSelectedTrip() {
+        return selectedTrip;
+    }
+
+    public void setSelectedTrip(Destination selectedTrip) {
+        this.selectedTrip = selectedTrip;
+    }
+}

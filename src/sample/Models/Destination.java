@@ -9,7 +9,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
 
 public class Destination {
-    private final String IMAGE_PATH = "./src/sample/media/destinations/";
+    private final String IMAGE_PATH = "../media/destinations/";
 
     private String city, country, description, imageURL;
 

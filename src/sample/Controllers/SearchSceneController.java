@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import sample.Models.DestinationRecommender;
 import sample.Models.SearchForm;
 import sample.managers.AppManager;
 import sample.managers.DialogWindowManager;
@@ -73,7 +74,9 @@ public class SearchSceneController implements Initializable {
             return;
         }
 
-        // send form
+        AppManager.getInstance().getAppData().setRecommendationsList(DestinationRecommender.recommendDestinations(searchForm));
+        AppManager.getInstance().getAppData().setBudget(searchForm.getBudget());
 
+        AppManager.getInstance().showWorkStage();
     }
 }

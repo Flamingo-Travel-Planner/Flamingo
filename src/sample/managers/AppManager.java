@@ -2,9 +2,12 @@ package sample.managers;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.Models.AppData;
 import sample.utils.FXMLTool;
 
-public class AppManager {
+import java.util.Observable;
+
+public class AppManager extends Observable {
 
     private static final int[] START_STAGE_DIMENSIONS = {600, 400};
 
@@ -20,9 +23,13 @@ public class AppManager {
 
     private static final String TRIP_SETUP_SCENE_URL = "../FXML/tripSetupScene.fxml";
 
+    private AppData appData = new AppData();
+
     private Stage startStage, workStage, currentStage;
 
     private Scene searchScene, tripItineraryScene, tripOptionsScene, tripSetupScene;
+
+    public AppData getAppData() { return appData; }
 
     public Scene getTripItineraryScene() { return tripItineraryScene; }
 
@@ -64,12 +71,18 @@ public class AppManager {
 
     public void changeWorkStageScene(Scene scene){
         workStage.setScene(scene);
+
+        setChanged();
+        notifyObservers(scene);
     }
 
     public void showWorkStage(){
         workStage.show();
         startStage.hide();
         currentStage = workStage;
+
+        setChanged();
+        notifyObservers(tripOptionsScene);
     }
 
     public void showStartStage(){
