@@ -37,6 +37,7 @@ public class TripOptionsSceneController implements Initializable, Observer {
         for(Destination destination: AppManager.getInstance().getAppData().getRecommendationsList()){
             try {
                 Pair<Parent, TripRecommendationPaneController> parentControllerPair = FXMLTool.loadParentController(getClass().getResource(TRIP_RECOMMENDATION_PANE_URL));
+                parentControllerPair.getKey().setOnMouseClicked(event -> setupTrip(destination));
                 parentControllerPair.getValue().setTripRecommendation(destination);
                 recommendationsContainer.getChildren().add(parentControllerPair.getKey());
                 parentControllerPair.getValue().setupRecommendationPane();
@@ -45,6 +46,11 @@ public class TripOptionsSceneController implements Initializable, Observer {
             }
         }
 
+    }
+
+    private void setupTrip(Destination selectedDestination){
+        AppManager.getInstance().getAppData().setSelectedTrip(selectedDestination);
+        AppManager.getInstance().changeWorkStageScene(AppManager.getInstance().getTripSetupScene());
     }
 
     @Override

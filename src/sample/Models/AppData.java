@@ -8,23 +8,19 @@ public class AppData {
 
     private List<Destination> recommendationsList;
 
-    public void setRecommendationsList(List<Destination> recommendationsList) {
-        this.recommendationsList = recommendationsList;
-    }
-
-    public int getBudget() {
-        return budget;
-    }
-
-    public void setBudget(int budget) {
-        this.budget = budget;
-    }
-
     private Destination selectedTrip;
+
+    private SearchForm searchForm;
+
+    public int getBudget() { return budget; }
+
+    public void setBudget(int budget) { this.budget = budget; }
 
     public List<Destination> getRecommendationsList() {
         return recommendationsList;
     }
+
+    public void setRecommendationsList(List<Destination> recommendationsList) { this.recommendationsList = recommendationsList; }
 
     public Destination getSelectedTrip() {
         return selectedTrip;
@@ -33,4 +29,8 @@ public class AppData {
     public void setSelectedTrip(Destination selectedTrip) {
         this.selectedTrip = selectedTrip;
     }
+
+    public SearchForm getSearchForm() { return searchForm; }
+
+    public void setSearchForm(SearchForm searchForm) { this.searchForm = searchForm; }
 }

@@ -26,9 +26,9 @@ import sample.Models.Destination;
 
 public class AttractionRecommender {
 
-    public static final int DEFAULT_RADIUS = 15_000;
+    public static final int DEFAULT_RADIUS = 7_500;
     public static final int MAX_IMAGE_DIMENSION = 600;
-    public static final String EMPTY_IMAGE_URL = "../media/placeholder.jpg";
+    public static final String EMPTY_IMAGE_URL = "https://www.logistec.com/wp-content/uploads/2017/12/placeholder.png";
 
     private static final HashMap<Attraction.Category, String> categorySubcategoryMappings = new HashMap<>();  // TODO Temporary hard-coding
     private static final HashMap<String, Duration> subcategoryDurationMappings = new HashMap<>();

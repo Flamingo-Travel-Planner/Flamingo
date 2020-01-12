@@ -14,8 +14,6 @@ import sample.managers.AppManager;
 import sample.managers.DialogWindowManager;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class SearchSceneController implements Initializable {
@@ -71,6 +69,7 @@ public class SearchSceneController implements Initializable {
 
         AppManager.getInstance().getAppData().setRecommendationsList(DestinationRecommender.recommendDestinations(searchForm));
         AppManager.getInstance().getAppData().setBudget(searchForm.getBudget());
+        AppManager.getInstance().getAppData().setSearchForm(searchForm);
 
         AppManager.getInstance().showWorkStage();
     }
