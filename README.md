@@ -1,3 +1,5 @@
+![logo](thumbnail.jpg)
+
 # Flamingo
 **cuHacking 2020 submission**
 
