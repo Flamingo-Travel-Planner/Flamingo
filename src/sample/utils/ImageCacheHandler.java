@@ -29,10 +29,17 @@ public class ImageCacheHandler {
      * Retrieves an image from the cache (or the web) based on imageId
      */
     public static Image retrieve(String imageId) {
+        if (imageId == null) {
+            File file = new File("./src/sample/media/placeholder.jpg");
+            return new Image(file.toURI().toString());
+        }
+
         try {
             // If Image is not in cache, put it in
             Path path = Paths.get(getCachePath(imageId));
             if (!Files.exists(path)) {
+                System.out.printf("Path %s does not exist\n", path);
+
                 URL url = new URL(getImageUrl(imageId));
                 ReadableByteChannel readableByteChannel = Channels.newChannel(url.openStream());
 
@@ -47,6 +54,9 @@ public class ImageCacheHandler {
 
 
                 fileOutputStream.getChannel().transferFrom(readableByteChannel, 0, Long.MAX_VALUE);
+            }
+            else {
+                System.out.println("Cache is working");
             }
 
             // Return image from cache

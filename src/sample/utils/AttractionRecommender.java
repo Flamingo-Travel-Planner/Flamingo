@@ -111,8 +111,6 @@ public class AttractionRecommender {
                 apiKey
          );
 
-         System.out.println(url);
-
          JSONObject response;
         try {
             response = jsonReader(url);
