@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.GaussianBlur?>
-<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -25,13 +24,10 @@
                         <GaussianBlur radius="0.0" />
                      </effect>
                   </ImageView>
-                  <Label fx:id="destinationLabel" prefHeight="50.0" text="Destination name" textFill="WHITE" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="25.0">
+                  <Label fx:id="destinationLabel" prefHeight="50.0" text="Destination name" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0">
                      <font>
-                        <Font name="Helvetica Neue Thin" size="35.0" />
+                        <Font name="Brush Script MT Italic" size="48.0" />
                      </font>
-                     <effect>
-                        <Glow level="1.0" />
-                     </effect>
                   </Label>
                   <Label fx:id="balanceLabel" prefHeight="30.0" text="Balance: $0.00" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="35.0">
                      <font>
