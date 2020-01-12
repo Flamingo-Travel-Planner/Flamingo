@@ -2,9 +2,9 @@ package sample.Models;
 
 import javafx.util.Pair;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class DestinationRecommender {
@@ -19,12 +19,12 @@ public class DestinationRecommender {
     /**
      * Returns a List of Destinations sorted by their closeness to the optimal price of the plane ticket.
      * The optimal price is calculated based on the budget of the traveller and the number of nights stayed in a hotel.
-     * @param budget
-     * @param numNights
+     * @param searchForm
      * @return
      */
-    public List<Destination> recommendDestinations(double budget, int numNights) {
-        double targetPrice = calculateTargetPrice(budget, numNights);
+    public List<Destination> recommendDestinations(SearchForm searchForm) {
+        int numNights = (int) Duration.between(searchForm.getDepartureDate(), searchForm.getReturnDate()).abs().toDays() - 1;
+        double targetPrice = calculateTargetPrice(searchForm.getBudget(), numNights);
 
         Destination[] destinations = new Destination[CITIES.length];
 
@@ -42,7 +42,4 @@ public class DestinationRecommender {
                 .collect(Collectors.toList());
     }
 
-    public static void main(String[] args) {
-        System.out.println(new DestinationRecommender().recommendDestinations(1000.01, 5));
-    }
 }
