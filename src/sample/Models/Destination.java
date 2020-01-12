@@ -32,7 +32,7 @@ public class Destination {
         for (Object destinationObj : jsonDestinations) {
             JSONObject destination = (JSONObject) destinationObj;
 
-            if (((String) destination.get("city")).toLowerCase().equals(city)) {
+            if (destination.get("city").equals(city)) {
                 this.city = (String) destination.get("city");
                 this.country = (String) destination.get("country");
                 this.description = (String) destination.get("description");
