@@ -3,6 +3,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -13,14 +17,25 @@
          <children>
             <AnchorPane prefHeight="100.0" style="-fx-background-color: #d9d9d9;">
                <children>
-                  <Label text="Recommended Destinations:" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="35.0">
+                  <ImageView fitHeight="100.0" fitWidth="780.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../media/background_work.jpg" />
+                     </image>
+                     <effect>
+                        <GaussianBlur radius="0.0" />
+                     </effect>
+                  </ImageView>
+                  <Label prefHeight="50.0" text="Recommended Destinations:" textFill="WHITE" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="25.0">
                      <font>
-                        <Font size="25.0" />
+                        <Font name="Helvetica Neue Thin" size="35.0" />
                      </font>
+                     <effect>
+                        <Glow level="1.0" />
+                     </effect>
                   </Label>
-                  <Label fx:id="balanceLabel" prefHeight="30.0" text="Balance: $0.00" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="35.0">
+                  <Label fx:id="balanceLabel" prefHeight="30.0" text="Balance: $0.00" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="35.0">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="Helvetica Neue Condensed Bold" size="20.0" />
                      </font>
                   </Label>
                </children>

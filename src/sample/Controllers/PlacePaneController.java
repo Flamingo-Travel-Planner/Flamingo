@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import sample.Models.Place;
 import sample.utils.AttractionRecommender;
+import sample.utils.ImageCacheHandler;
 
 public class PlacePaneController {
 
@@ -26,9 +27,9 @@ public class PlacePaneController {
         nameLabel.setText(place.getName());
         priceLabel.setText(Double.toString(place.getPrice()));
         try {
-            placeImageView.setImage(new Image(place.getImageId()));
+            placeImageView.setImage(ImageCacheHandler.retrieve(place.getImageId()));
         }catch (Exception e){
-            placeImageView.setImage(new Image(AttractionRecommender.EMPTY_IMAGE_URL));
+            placeImageView.setImage(ImageCacheHandler.retrieve(AttractionRecommender.EMPTY_IMAGE_URL));
         }
     }
 }

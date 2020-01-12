@@ -15,31 +15,31 @@
    <children>
       <VBox alignment="TOP_CENTER" style="-fx-background-color: #e6e6e6;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="30.0">
          <children>
-            <JFXTextField fx:id="budgetField" focusColor="#009688" labelFloat="true" promptText="Budget (CAD)">
+            <JFXTextField fx:id="budgetField" focusColor="#00c9c5" labelFloat="true" promptText="Budget (CAD)">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </JFXTextField>
-            <JFXTextField fx:id="originField" focusColor="#009688" labelFloat="true" layoutX="25.0" layoutY="25.0" promptText="Origin (City, Country)">
+            <JFXTextField fx:id="originField" focusColor="#00c9c5" labelFloat="true" layoutX="25.0" layoutY="25.0" promptText="Origin (City, Country)">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </JFXTextField>
             <HBox prefHeight="27.0">
                <children>
-                  <JFXDatePicker fx:id="departureDatePicker" prefWidth="180.0" promptText="Departure Date" />
-                  <JFXDatePicker fx:id="returnDatePicker" layoutX="10.0" layoutY="10.0" prefWidth="180.0" promptText="Return Date" />
+                  <JFXDatePicker fx:id="departureDatePicker" defaultColor="#00c9c5" prefWidth="180.0" promptText="Departure Date" />
+                  <JFXDatePicker fx:id="returnDatePicker" defaultColor="#00c9c5" layoutX="10.0" layoutY="10.0" prefWidth="180.0" promptText="Return Date" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </HBox>
-            <VBox fx:id="categoriesContainer" alignment="TOP_CENTER" prefHeight="100.0" spacing="10.0" style="-fx-background-color: #bfbfbf;">
+            <VBox fx:id="categoriesContainer" alignment="TOP_CENTER" prefHeight="100.0" spacing="10.0" style="-fx-background-color: #e6e6e6;">
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="20.0" spacing="20.0">
                      <children>
-                        <JFXCheckBox fx:id="museumsCheckBox" prefWidth="113.0" text="Museums" />
-                        <JFXCheckBox fx:id="nightlifeCheckBox" layoutX="146.0" layoutY="10.0" prefWidth="113.0" text="Nightlife" />
+                        <JFXCheckBox fx:id="museumsCheckBox" checkedColor="#ff7db5" prefWidth="113.0" text="Museums" />
+                        <JFXCheckBox fx:id="nightlifeCheckBox" checkedColor="#ff7db5" layoutX="146.0" layoutY="10.0" prefWidth="113.0" text="Nightlife" />
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -47,8 +47,8 @@
                   </HBox>
                   <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="47.0" prefHeight="20.0" spacing="20.0">
                      <children>
-                        <JFXCheckBox fx:id="religionCheckBox" prefWidth="113.0" text="Religion" />
-                        <JFXCheckBox fx:id="shoppingCheckBox" layoutX="153.0" layoutY="10.0" prefWidth="113.0" text="Shopping" />
+                        <JFXCheckBox fx:id="religionCheckBox" checkedColor="#ff7db5" prefWidth="113.0" text="Religion" />
+                        <JFXCheckBox fx:id="shoppingCheckBox" checkedColor="#ff7db5" layoutX="153.0" layoutY="10.0" prefWidth="113.0" text="Shopping" />
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -56,8 +56,8 @@
                   </HBox>
                   <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="95.0" prefHeight="20.0" spacing="20.0">
                      <children>
-                        <JFXCheckBox fx:id="entertainmentCheckBox" prefWidth="113.0" text="Entertainment" />
-                        <JFXCheckBox fx:id="outdoorCheckBox" prefWidth="113.0" text="Outdoor" />
+                        <JFXCheckBox fx:id="entertainmentCheckBox" checkedColor="#ff7db5" prefWidth="113.0" text="Entertainment" />
+                        <JFXCheckBox fx:id="outdoorCheckBox" checkedColor="#ff7db5" prefWidth="113.0" text="Outdoor" />
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -71,7 +71,7 @@
                   <Insets top="10.0" />
                </padding>
             </VBox>
-            <JFXButton onAction="#search" prefHeight="50.0" prefWidth="100.0" ripplerFill="#009688" style="-fx-background-color: #d9d9d9;" text="Go!">
+            <JFXButton onAction="#search" prefHeight="50.0" prefWidth="100.0" ripplerFill="#00c9c5" style="-fx-background-color: #d9d9d9;" text="Go!">
                <VBox.margin>
                   <Insets top="17.5" />
                </VBox.margin>

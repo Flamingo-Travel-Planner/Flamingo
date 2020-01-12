@@ -40,6 +40,7 @@ public class ImageCacheHandler {
 //                System.out.println("Copying from " + getImageUrl(imageId) + "\n to " + cachePath);
 
                 File file = new File(cachePath);
+                file.getParentFile().mkdirs();
                 file.createNewFile();
                 FileOutputStream fileOutputStream = new FileOutputStream(cachePath);
                 FileChannel fileChannel = fileOutputStream.getChannel();
@@ -60,7 +61,9 @@ public class ImageCacheHandler {
     }
 
     private static String getCachePath(String imageId) {
-        return CACHE_ROOT + imageId.substring(0, 100) + EXTENSION;  // Truncate to shorten path
+        if (imageId.length() > 100)
+            return CACHE_ROOT + imageId.substring(0, 100) + EXTENSION;  // Truncate to shorten path
+        return CACHE_ROOT + imageId + EXTENSION;  // Truncate to shorten path
     }
 
     private static String getImageUrl(String imageId) {

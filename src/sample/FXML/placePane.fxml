@@ -9,16 +9,16 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.PlacePaneController">
    <children>
       <ImageView fx:id="placeImageView" fitHeight="140.0" fitWidth="250.0" pickOnBounds="true" />
-      <Label fx:id="nameLabel" prefHeight="20.0" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+      <Label fx:id="nameLabel" maxWidth="230.0" prefHeight="20.0" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
          <font>
-            <Font size="17.0" />
+            <Font name="Helvetica Neue Condensed Bold" size="17.0" />
          </font>
       </Label>
       <Label fx:id="priceLabel" layoutX="20.0" layoutY="120.0" prefHeight="20.0" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
          <font>
-            <Font size="15.0" />
+            <Font name="Helvetica Neue Condensed Bold" size="15.0" />
          </font>
       </Label>
-      <JFXCheckBox fx:id="selectedCheckBox" text=" " AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
+      <JFXCheckBox fx:id="selectedCheckBox" checkedColor="#ff7db5" text=" " AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
    </children>
 </AnchorPane>
