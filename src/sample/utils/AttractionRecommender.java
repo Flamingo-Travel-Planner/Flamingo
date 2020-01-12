@@ -32,6 +32,7 @@ public class AttractionRecommender {
 
     private static final HashMap<Attraction.Category, String> categorySubcategoryMappings = new HashMap<>();  // TODO Temporary hard-coding
     private static final HashMap<String, Duration> subcategoryDurationMappings = new HashMap<>();
+    private static final HashMap<String, Double> subcategoryPriceMapping = new HashMap<>();
 
     public static void main(String[] args) {
         SearchForm sf = new SearchForm();
@@ -53,6 +54,7 @@ public class AttractionRecommender {
 
         populateCategorySubcategoryMappings();
         populateSubcategoryDurationMappings();
+        populateSubcategoryPriceMapping();
 
         HashMap<Attraction.Category, List<Attraction>> attractionRecommendations = new HashMap<>();
 
@@ -90,6 +92,15 @@ public class AttractionRecommender {
         subcategoryDurationMappings.put("shopping_mall", Duration.ofMinutes(240));
     }
 
+    private static void populateSubcategoryPriceMapping() {
+        subcategoryPriceMapping.put("movie_theater", 12.0);
+        subcategoryPriceMapping.put("museum", 21.0);
+        subcategoryPriceMapping.put("church", 16.0);
+        subcategoryPriceMapping.put("park", 10.0);
+        subcategoryPriceMapping.put("casino", 50.0);
+        subcategoryPriceMapping.put("shopping_mall", 0.0);
+    }
+
     private static List<Attraction> getAttractionsWithCategory(double lat, double lng, Attraction.Category category,
                                                                String subCategory, String apiKey) {
          String url = String.format("https://maps.googleapis.com/maps/api/place/nearbysearch/json?" +
@@ -100,6 +111,8 @@ public class AttractionRecommender {
                 subCategory,
                 apiKey
          );
+
+         System.out.println(url);
 
          JSONObject response;
         try {
@@ -133,7 +146,7 @@ public class AttractionRecommender {
                     imageUrl,
                     (double) ((JSONObject) (((JSONObject) (jsonAttraction.get("geometry"))).get("location"))).get("lat"),
                     (double) ((JSONObject) (((JSONObject) (jsonAttraction.get("geometry"))).get("location"))).get("lng"),
-                    15,  // TODO temporary hard coding
+                    subcategoryPriceMapping.get(subCategory),  // TODO temporary hard coding
                     category,
                     subCategory,
                     subcategoryDurationMappings.get(subCategory)

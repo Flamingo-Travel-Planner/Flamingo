@@ -33,7 +33,7 @@ public class TripSetupSceneController implements Initializable, Observer {
 
         destinationLabel.setText(AppManager.getInstance().getAppData().getSelectedTrip().getCity() + ", " + AppManager.getInstance().getAppData().getSelectedTrip().getCountry());
 
-        balanceLabel.setText("Balance: CAD " + AppManager.getInstance().getAppData().getBudget());
+        balanceLabel.setText("Balance: CAD " + (AppManager.getInstance().getAppData().getBudget() - AppManager.getInstance().getAppData().getSelectedTrip().getPrice()));
 
         attractionsByCategory = AttractionRecommender.recommendAttractions(AppManager.getInstance().getAppData().getSearchForm(), AppManager.getInstance().getAppData().getSelectedTrip());
 
