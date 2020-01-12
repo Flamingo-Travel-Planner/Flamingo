@@ -5,14 +5,15 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.SearchSceneController">
    <children>
-      <VBox style="-fx-background-color: #e6e6e6;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="50.0">
+      <VBox alignment="TOP_CENTER" style="-fx-background-color: #e6e6e6;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="30.0">
          <children>
             <JFXTextField fx:id="budgetField" focusColor="#009688" labelFloat="true" promptText="Budget (CAD)">
                <VBox.margin>
@@ -33,50 +34,57 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </HBox>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" style="-fx-background-color: #bfbfbf;">
+            <VBox fx:id="categoriesContainer" alignment="TOP_CENTER" prefHeight="100.0" spacing="10.0" style="-fx-background-color: #bfbfbf;">
                <children>
-                  <Label text="Categories">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <HBox alignment="TOP_CENTER" prefHeight="18.0" spacing="20.0">
+                  <HBox alignment="TOP_CENTER" prefHeight="20.0" spacing="20.0">
                      <children>
                         <JFXCheckBox fx:id="museumsCheckBox" prefWidth="113.0" text="Museums" />
                         <JFXCheckBox fx:id="nightlifeCheckBox" layoutX="146.0" layoutY="10.0" prefWidth="113.0" text="Nightlife" />
                      </children>
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="47.0" prefHeight="18.0" spacing="20.0">
+                  <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="47.0" prefHeight="20.0" spacing="20.0">
                      <children>
                         <JFXCheckBox fx:id="religionCheckBox" prefWidth="113.0" text="Religion" />
                         <JFXCheckBox fx:id="shoppingCheckBox" layoutX="153.0" layoutY="10.0" prefWidth="113.0" text="Shopping" />
                      </children>
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="95.0" prefHeight="18.0" spacing="20.0">
+                  <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="95.0" prefHeight="20.0" spacing="20.0">
                      <children>
-                        <JFXCheckBox fx:id="entertainmentCheckBox" text="Entertainment" />
+                        <JFXCheckBox fx:id="entertainmentCheckBox" prefWidth="113.0" text="Entertainment" />
                         <JFXCheckBox fx:id="outdoorCheckBox" prefWidth="113.0" text="Outdoor" />
                      </children>
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets />
                      </VBox.margin>
                   </HBox>
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
             </VBox>
+            <JFXButton onAction="#search" prefHeight="50.0" prefWidth="100.0" ripplerFill="#009688" style="-fx-background-color: #d9d9d9;" text="Go!">
+               <VBox.margin>
+                  <Insets top="17.5" />
+               </VBox.margin>
+            </JFXButton>
          </children>
          <padding>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </padding>
       </VBox>
-      <JFXButton onAction="#search" prefHeight="50.0" prefWidth="100.0" ripplerFill="#009688" style="-fx-background-color: #d9d9d9;" text="Search" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="50.0" />
+      <ImageView fitHeight="340.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+         <image>
+            <Image url="@../media/flamingo_search_background.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

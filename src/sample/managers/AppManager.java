@@ -8,7 +8,7 @@ public class AppManager {
 
     private static final int[] START_STAGE_DIMENSIONS = {600, 400};
 
-    private static final int[] WORK_STAGE_DIMENSIONS = {1280, 720};
+    private static final int[] WORK_STAGE_DIMENSIONS = {800, 600};
 
     private static final String TITLE = "Flamingo";
 
