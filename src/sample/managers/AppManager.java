@@ -1,4 +1,4 @@
-package sample;
+package sample.managers;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -12,15 +12,15 @@ public class AppManager {
 
     private static final String TITLE = "Flamingo";
 
-    private static final String SEACRH_SCENE_URL = "/FXML/searchScene.fxml";
+    private static final String SEARCH_SCENE_URL = "../FXML/searchScene.fxml";
 
-    private static final String TRIP_ITINERARY_SCENE_URL = "/FXML/tripItineraryScene.fxml";
+    private static final String TRIP_ITINERARY_SCENE_URL = "../FXML/tripItineraryScene.fxml";
 
-    private static final String TRIP_OPTIONS_SCENE_URL = "/FXML/tripOptionsScene.fxml";
+    private static final String TRIP_OPTIONS_SCENE_URL = "../FXML/tripOptionsScene.fxml";
 
-    private static final String TRIP_SETUP_SCENE_URL = "/FXML/tripSetupScene.fxml";
+    private static final String TRIP_SETUP_SCENE_URL = "../FXML/tripSetupScene.fxml";
 
-    private Stage startStage, workStage;
+    private Stage startStage, workStage, currentStage;
 
     private Scene searchScene, tripItineraryScene, tripOptionsScene, tripSetupScene;
 
@@ -29,6 +29,8 @@ public class AppManager {
     public Scene getTripOptionsScene() { return tripOptionsScene; }
 
     public Scene getTripSetupScene() { return tripSetupScene; }
+
+    public Stage getCurrentStage() { return currentStage; }
 
     private static AppManager instance = new AppManager();
 
@@ -45,7 +47,7 @@ public class AppManager {
 
             startStage.setTitle(TITLE); workStage.setTitle(TITLE);
 
-            searchScene = FXMLTool.createScene(getClass().getResource(SEACRH_SCENE_URL), START_STAGE_DIMENSIONS);
+            searchScene = FXMLTool.createScene(getClass().getResource(SEARCH_SCENE_URL), START_STAGE_DIMENSIONS);
             tripItineraryScene = FXMLTool.createScene(getClass().getResource(TRIP_ITINERARY_SCENE_URL), WORK_STAGE_DIMENSIONS);
             tripOptionsScene = FXMLTool.createScene(getClass().getResource(TRIP_OPTIONS_SCENE_URL), WORK_STAGE_DIMENSIONS);
             tripSetupScene = FXMLTool.createScene(getClass().getResource(TRIP_SETUP_SCENE_URL), WORK_STAGE_DIMENSIONS);
@@ -67,10 +69,12 @@ public class AppManager {
     public void showWorkStage(){
         workStage.show();
         startStage.hide();
+        currentStage = workStage;
     }
 
     public void showStartStage(){
         startStage.show();
         workStage.hide();
+        currentStage = startStage;
     }
 }
